@@ -2,8 +2,7 @@ name: Ansible CNPG Test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
   pull_request:
 
 jobs:
