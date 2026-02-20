@@ -1,0 +1,5 @@
+- name: Install PostgreSQL Platform
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - cnpg_operator

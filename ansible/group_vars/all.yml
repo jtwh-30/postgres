@@ -1,0 +1,22 @@
+cnpg_namespace: cnpg-system
+
+postgres_storage_class: standard
+
+postgres_tiers:
+  small:
+    instances: 1
+    cpu_request: 250m
+    memory_request: 512Mi
+    storage_size: 1Gi
+
+  medium:
+    instances: 2
+    cpu_request: 500m
+    memory_request: 0.5Gi
+    storage_size: 2Gi
+
+  large:
+    instances: 3
+    cpu_request: 1
+    memory_request: 1Gi
+    storage_size: 5Gi
