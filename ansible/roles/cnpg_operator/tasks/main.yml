@@ -1,12 +1,14 @@
-- name: Add CloudNativePG Helm repo
-  kubernetes.core.helm_repository:
-    name: cnpg
-    repo_url: https://cloudnative-pg.github.io/charts
+- name: Add CloudNativePG Helm repository
+  ansible.builtin.command:
+    cmd: helm repo add cnpg https://cloudnative-pg.github.io/charts
+
+- name: Update Helm repositories
+  ansible.builtin.command:
+    cmd: helm repo update
 
 - name: Install CloudNativePG operator
-  kubernetes.core.helm:
-    name: cloudnative-pg
-    chart_ref: cnpg/cloudnative-pg
-    release_namespace: "{{ cnpg_namespace }}"
-    create_namespace: true
-    wait: true
+  ansible.builtin.command:
+    cmd: >
+      helm upgrade --install cnpg cnpg/cloudnative-pg
+      --namespace cnpg-system
+      --create-namespace

@@ -1,0 +1,6 @@
+- name: Deploy PostgreSQL Cluster
+  hosts: localhost
+  gather_facts: no
+
+  roles:
+    - cnpg_cluster

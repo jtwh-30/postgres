@@ -1,0 +1,8 @@
+- name: Create PostgreSQL cluster manifest
+  ansible.builtin.template:
+    src: cluster.yaml.j2
+    dest: /tmp/cluster.yaml
+
+- name: Apply cluster manifest
+  ansible.builtin.command:
+    cmd: kubectl apply -f /tmp/cluster.yaml
